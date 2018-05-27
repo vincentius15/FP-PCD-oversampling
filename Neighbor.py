@@ -7,8 +7,6 @@ def langrangeInterpolation(x,x0,x1,x2,x3,fx0,fx1,fx2,fx3):
 
 
 def resize(img):
-    print img.size[0]
-    print img.size[1]
     pixels = img.load()
     outputResize = Image.new(img.mode, (img.size[0]*3-2, img.size[1]*3-2))
     outputResizePixels = outputResize.load()
@@ -22,8 +20,6 @@ def NeighFunc(img):
     pixels = img.load()
     output = Image.new(img.mode, (img.size[0], img.size[1]))
     outputpixels = output.load()
-    print img.size[0]
-    print img.size[1]
     for i in range(0,img.size[0],1):
         for j in range(0,img.size[1],1):
             r0,g0,b0 = pixels[i,j]
@@ -77,7 +73,7 @@ def NeighFunc(img):
     return output
 
 if __name__ == "__main__":
-    img = Image.open('image.jpg')
+    img = Image.open('facet.jpg')
     result = resize(img)
     result.save("resized.bmp")
     result2 = NeighFunc(result)
